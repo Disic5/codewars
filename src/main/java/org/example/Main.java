@@ -1,42 +1,39 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Main main = new Main();
-        main.arrayDiff(new int[]{1, 2, 34, 2, 2, 4, 2, 3, 4, 3, 2, 45}, new int[]{2,45});
-    }
-
-//    public static int[] arrayDiff(int[] a, int[] b) {
-//        List<Integer> list = new ArrayList<>();
-//
-//        for (int i = 0; i < a.length; i++) {
-//            int count = 0;
-//            for (int j = 0; j < b.length; j++) {
-//                if (a[i] == b[j]){
-//                    count ++;
-//                    break;
-//                }
-//            }
-//            if (count == 0){
-//                list.add(a[i]);
-//            }
+//    public static Set<Integer> findRepeatElement(int[] arr){
+//        Map<Integer,Integer> map = new HashMap<>();
+//        for (int num: arr) {
+//            map.merge(num, 1, Integer::sum);
 //        }
-//        System.out.println(list);
-//        return list.stream().mapToInt(i -> i).toArray();
+//
+//        return map.entrySet().stream().filter(entry -> entry.getValue() > 1)
+//                .map(Map.Entry::getKey)
+//                .collect(Collectors.toSet());
 //    }
 
-public static int[] arrayDiff(int[] a, int[] b) {
-    List<Integer> listA = Arrays.stream(a).boxed().collect(Collectors.toList());
-    List<Integer> listB = Arrays.stream(b).boxed().collect(Collectors.toList());
-    listA.removeAll(listB);
-    return listA.stream().mapToInt(e -> e).toArray();
-}
+
+
+
+
+    public static Character findUniqChar(String string){
+        Map<Character, Integer>map = new HashMap<>();
+        for (char ch : string.toCharArray()){
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()){
+            if (entry.getValue() == 1){
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 
 
 }

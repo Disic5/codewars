@@ -1,5 +1,8 @@
 package org.example.regExp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Банкоматы допускают использование 4- или 6-значных PIN-кодов, а PIN-коды не могут содержать ничего, кроме ровно 4 или ровно 6 цифр.
  * "1234"   -->  true
@@ -25,5 +28,6 @@ public class ValidatePIN {
         return false;
      }
      */
+
 
 }
